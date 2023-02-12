@@ -38,6 +38,8 @@ TBA_print(1, "Wellcome to YGGDRASIL BETA 1.0")
 
 if settings["first_time"] == "True":
     TBA_print(1, "Please enter your name")
+else:
+    TBA_print(1, "Wellcome " + save["name"])
 
 def game_logic(list, message):
     if settings["first_time"]:
@@ -49,6 +51,7 @@ def game_logic(list, message):
                 json.dump(save, f)
             with open("settings.json", "w") as f:
                 json.dump(settings, f)
+            TBA_print(1, "Wellcome " + save["name"])
     if message == "":
         return
 

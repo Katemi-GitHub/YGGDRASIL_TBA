@@ -42,7 +42,9 @@ def tgaPrint(msgType=int, msg=str):
         typeTag = "SYSTEM"
     if msgType == 1: # type 1 for world notifications
         typeTag = "WORLD"
+    text_area.config(state="normal")
     text_area.insert(tk.END, "["+typeTag+"] "+msg+"\n") # print into the text_area the desired message
+    text_area.config(state="disabled")
 
 def append_message(Event=None):
     global user_last_input
@@ -55,6 +57,10 @@ def saveFiles():
 
     with open("save.json", "w") as file:
         json.dump(save, file)
+
+def getUserInput(user_input):
+    frame.update()
+    frame.wait_variable(user_input)
 
 # there goes the GUI elements
 
@@ -69,7 +75,7 @@ text_input.config(bd=1, relief="raised")
 text_input.pack(side=tk.BOTTOM, fill=tk.X)
 text_input.bind("<Return>", append_message)
 
-text_area = tk.Text(frame, state="normal")
+text_area = tk.Text(frame, state="disabled")
 text_area.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 text_area.config(bg="black", fg="white", bd=1, relief="sunken")
 
@@ -79,11 +85,13 @@ tgaPrint(0, "Wellcome to YGGDRASIL")
 
 if settings["first_time"] == "True":
     tgaPrint(0, "Please adventurer, type your name")
-    frame.update()
-    frame.wait_variable(user_last_input)
+    getUserInput(user_last_input)
     save["name"] = user_last_input.get()
-    tgaPrint(0, "Be wellcome "+save["name"]+" to Yggdrasil, the almighty tree of life and creation!")
+    tgaPrint(0, "Be welcome "+save["name"]+" to Yggdrasil, the almighty tree of life and creation!")
     settings["first_time"] = "False"
     saveFiles()
+
+getUserInput(user_last_input)
+command = user_last_input.get()
 
 frame.mainloop()

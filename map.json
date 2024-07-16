@@ -1,0 +1,21 @@
+{
+    "Nine_Realms": {
+        "Asgard": {
+            "Bifrost": ["Asgardian_Bifrost"],
+            "Valhalla": []
+        },
+        "Midgard": {
+            "Bifrost": ["Midgardian_Bifrost"],
+            "Court_Justice": ["Court_Justice"],
+            "Wilderness": ["Unknow_place", "Test_Dungeon", "Mid_Wilderness"],
+            "Midgardian_Ocean": ["Surface", "Deep", "House of Jormungandr"]
+        },
+        "Alfheim": {},
+        "Muspelheim": {},
+        "Jotunheim": {},
+        "Helheim": {},
+        "Svaltarfheilm": {},
+        "Nifelheim": {},
+        "Vanaheim": {}
+    }
+}

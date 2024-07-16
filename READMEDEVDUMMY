@@ -1,0 +1,30 @@
+Plain text file for dev (me) documentation
+
+Combat system
+
+Player:
+    stamina & mana
+    normal attack -> stamina
+    magic attack -> stamina & mana
+    turn ends when stamina == 0 or stamina > attack or spell with less stamina
+    can end turn with command
+    every choice is command not number
+
+Print attack list
+
+    command -> stats show attacks/spells
+               ^     ^    ^
+               |     |    stat to show
+               |     command action
+               command
+    
+    #--#--#--#--#--# Attacks (or Spells) #--#--#--#--#--#
+    #                                                   #
+        Attack_name    Stamina:number    Mana:Number
+        Attack_name    Stamina:number    Mana:Number
+        Attack_name    Stamina:number    Mana:Number
+        Attack_name    Stamina:number    Mana:Number
+        Attack_name    Stamina:number    Mana:Number
+        max 20 per page
+    #                                                   #
+    #--#--#--#--#--#        Pag 1        #--#--#--#--#--#
